@@ -30,7 +30,7 @@ case "$OS" in
     ;;
   
   ohos)
-    apply_patch "$PATCHES/ohos/pdfium.patch"
+#    apply_patch "$PATCHES/ohos/pdfium.patch"
     [ "$ENABLE_V8" == "true" ] && apply_patch "$PATCHES/ohos/v8.patch" v8
     ;;
 
