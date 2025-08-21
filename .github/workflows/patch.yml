@@ -18,9 +18,10 @@ jobs:
 
       - name: Checkout PDFium
         run: |
-          PDFium_BRANCH=$(git ls-remote --sort version:refname --refs https://pdfium.googlesource.com/pdfium.git 'chromium/*' | tail -n 1 | cut -d/ -f3-4)
+          PDFium_URL="https://gitcode.com/openharmony-tpc/chromium_third_party_pdfium.git"
+          PDFium_BRANCH="132_trunk_6.0-Release"
           echo "Checking out branch $PDFium_BRANCH"
-          gclient config --unmanaged "https://pdfium.googlesource.com/pdfium.git"
+          gclient config --unmanaged ${PDFium_URL}
           gclient sync -r "origin/${PDFium_BRANCH}" --no-history --shallow
 
       - name: Upload PDFium artifact

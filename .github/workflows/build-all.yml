@@ -3,10 +3,15 @@ name: Build all
 on:
   workflow_dispatch:
     inputs:
+      url: 
+        description: PDFium URL
+        type: string
+        required: false
+        default: "https://gitcode.com/openharmony-tpc/chromium_third_party_pdfium.git"
       branch:
         description: PDFium branch
         required: false
-        default: main
+        default: 132_trunk_6.0-Release
       version:
         description: PDFium version
         required: false
@@ -42,6 +47,7 @@ jobs:
     name: Android ARM
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -55,6 +61,7 @@ jobs:
     needs: android_arm
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -66,6 +73,7 @@ jobs:
     name: Android ARM64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -79,6 +87,7 @@ jobs:
     needs: android_arm64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -90,6 +99,7 @@ jobs:
     name: Android x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -103,6 +113,7 @@ jobs:
     needs: android_x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -114,6 +125,7 @@ jobs:
     name: Android x86
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -127,6 +139,7 @@ jobs:
     needs: android_x86
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -138,6 +151,7 @@ jobs:
     name: iOS catalyst ARM64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -152,6 +166,7 @@ jobs:
     needs: ios_catalyst_arm64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -164,6 +179,7 @@ jobs:
     name: iOS catalyst x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -178,6 +194,7 @@ jobs:
     needs: ios_catalyst_x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -190,6 +207,7 @@ jobs:
     name: iOS device ARM64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -204,6 +222,7 @@ jobs:
     needs: ios_device_arm64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -216,6 +235,7 @@ jobs:
     name: iOS simulator ARM64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -230,6 +250,7 @@ jobs:
     needs: ios_simulator_arm64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -242,6 +263,7 @@ jobs:
     name: iOS simulator x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -256,6 +278,7 @@ jobs:
     needs: ios_simulator_x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -268,6 +291,7 @@ jobs:
     name: Ohos ARM
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -281,6 +305,7 @@ jobs:
     needs: ohos_arm
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -292,6 +317,7 @@ jobs:
     name: Ohos ARM64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -305,6 +331,7 @@ jobs:
     needs: ohos_arm64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -316,6 +343,7 @@ jobs:
     name: Ohos x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -329,6 +357,7 @@ jobs:
     needs: ohos_x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -340,6 +369,7 @@ jobs:
     name: Linux ARM
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -353,6 +383,7 @@ jobs:
     needs: linux_arm
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -364,6 +395,7 @@ jobs:
     name: Linux ARM64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -377,6 +409,7 @@ jobs:
     needs: linux_arm64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -388,6 +421,7 @@ jobs:
     name: Linux x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -401,6 +435,7 @@ jobs:
     needs: linux_x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -412,6 +447,7 @@ jobs:
     name: Linux x86
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -425,6 +461,7 @@ jobs:
     needs: linux_x86
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -437,6 +474,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     secrets: inherit
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -450,6 +488,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     secrets: inherit
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -463,6 +502,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     secrets: inherit
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -475,6 +515,7 @@ jobs:
     name: macOS ARM64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -488,6 +529,7 @@ jobs:
     needs: mac_arm64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -499,6 +541,7 @@ jobs:
     name: macOS x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -512,6 +555,7 @@ jobs:
     needs: mac_x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -523,6 +567,7 @@ jobs:
     name: Windows ARM64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -536,6 +581,7 @@ jobs:
     needs: win_arm64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -547,6 +593,7 @@ jobs:
     name: Windows x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -560,6 +607,7 @@ jobs:
     needs: win_x64
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -571,6 +619,7 @@ jobs:
     name: Windows x86
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -584,6 +633,7 @@ jobs:
     needs: win_x86
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -595,6 +645,7 @@ jobs:
     name: WASM
     uses: ./.github/workflows/build.yml
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}
@@ -648,6 +699,12 @@ jobs:
       - linux_x64_v8
       - linux_x86
       - linux_x86_v8
+      - ohos_arm
+      - ohos_arm_v8
+      - ohos_arm64
+      - ohos_arm64_v8
+      - ohos_x64
+      - ohos_x64_v8
       - linux_musl_arm64
       - linux_musl_x64
       - linux_musl_x86
@@ -675,12 +732,13 @@ jobs:
       - name: Define properties
         shell: bash
         run: |
+          URL="${{ github.event.inputs.url }}"
           VERSION="${{ github.event.inputs.version || '0.0.0.0' }}"
           BRANCH="${GITHUB_REF#refs/heads/}"
           COMMIT="${GITHUB_SHA}"
           RELEASE_NOTES="${{github.server_url}}/${{github.repository}}/releases"
           ${{ github.event.inputs.release }} && RELEASE_NOTES+="/tag/${{ github.event.inputs.branch }}"
-          echo "NUSPEC_PROPERTIES=version=$VERSION;branch=$BRANCH;commit=$COMMIT;releaseNotes=$RELEASE_NOTES" >> "$GITHUB_ENV"
+          echo "NUSPEC_PROPERTIES=URL=$URL;version=$VERSION;branch=$BRANCH;commit=$COMMIT;releaseNotes=$RELEASE_NOTES" >> "$GITHUB_ENV"
       - name: Pack
         shell: bash
         run: |
@@ -827,14 +885,15 @@ jobs:
       - name: Get changes
         continue-on-error: true
         run: |
+          INPUT_URL=${{ github.event.inputs.url }}
           CURRENT_REV=${{ github.event.inputs.branch }}
           PREVIOUS_REV=$(curl --silent "https://api.github.com/repos/${{ github.repository }}/releases/latest" | jq -r ".tag_name")
-          git clone -b "${{ github.event.inputs.branch }}" https://pdfium.googlesource.com/pdfium.git
+          git clone -b "${{ github.event.inputs.branch }}" "${{ github.event.inputs.url }}"
           cat <<END >> RELEASE.md
           ### Changes
           Commits between \`$PREVIOUS_REV\` and \`$CURRENT_REV\`:
           END
-          git -C "pdfium" log origin/${PREVIOUS_REV}.. --pretty=format:'* [%s](https://pdfium.googlesource.com/pdfium/+/%H)' >> RELEASE.md
+          git -C "pdfium" log origin/${PREVIOUS_REV}.. --pretty=format:'* [%s](${INPUT_URL}/+/%H)' >> RELEASE.md
       - name: Generate artifacts checksums
         id: hash
         run: echo "hashes=$(sha256sum pdfium-*.tgz | base64 -w0)" >> "$GITHUB_OUTPUT"

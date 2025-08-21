@@ -3,11 +3,16 @@ name: Build
 on:
   workflow_call:
     inputs:
+      url:
+        description: PDFium URL
+        type: string
+        required: false
+        default: "https://gitcode.com/openharmony-tpc/chromium_third_party_pdfium.git"
       branch:
         description: PDFium branch
         type: string
         required: false
-        default: main
+        default: 132_trunk_6.0-Release
       version:
         description: PDFium version
         type: string
@@ -24,7 +29,7 @@ on:
         required: false
         default: false
       target_os:
-        description: Target OS (android|emscripten|ios|linux|mac|win)
+        description: Target OS (android|emscripten|ios|linux|mac|win|ohos)
         type: string
         required: true
       target_cpu:
@@ -68,6 +73,7 @@ jobs:
       - name: Set environment variables
         run: |
           cat >>$GITHUB_ENV <<END
+          PDFium_URL=${{ inputs.url }}
           PDFium_BRANCH=${{ inputs.branch }}
           PDFium_IS_DEBUG=${{ inputs.is_debug }}
           PDFium_TARGET_CPU=${{ inputs.target_cpu }}

@@ -3,10 +3,15 @@ name: Build one
 on:
   workflow_dispatch:
     inputs:
+      url:
+        description: PDFium URL
+        type: string
+        required: false
+        default: "https://gitcode.com/openharmony-tpc/chromium_third_party_pdfium.git"
       branch:
         description: PDFium branch
         required: false
-        default: main
+        default: 132_trunk_6.0-Release
       version:
         description: PDFium version
         required: false
@@ -63,6 +68,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     secrets: inherit
     with:
+      url: ${{ github.event.inputs.url }}
       branch: ${{ github.event.inputs.branch }}
       version: ${{ github.event.inputs.version }}
       is_debug: ${{ github.event.inputs.is_debug == 'true' }}

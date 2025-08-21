@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-PDFium_URL="${PDFium_URL:-'https://pdfium.googlesource.com/pdfium.git'}"
+GIT_URL="${PDFium_URL:-'https://pdfium.googlesource.com/pdfium.git'}"
 OS=${PDFium_TARGET_OS:?}
 ENABLE_V8=${PDFium_ENABLE_V8:-false}
 
@@ -12,7 +12,7 @@ if [ "$ENABLE_V8" == "false" ]; then
 fi
 
 # Clone
-gclient config --unmanaged "$PDFium_URL" "${CONFIG_ARGS[@]-}"
+gclient config --unmanaged "$GIT_URL" "${CONFIG_ARGS[@]-}"
 echo "target_os = [ '$OS' ]" >> .gclient
 
 
