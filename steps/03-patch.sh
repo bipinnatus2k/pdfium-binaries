@@ -28,6 +28,11 @@ case "$OS" in
     apply_patch "$PATCHES/ios/pdfium.patch"
     [ "$ENABLE_V8" == "true" ] && apply_patch "$PATCHES/ios/v8.patch" v8
     ;;
+  
+  ohos)
+    apply_patch "$PATCHES/ohos/pdfium.patch"
+    [ "$ENABLE_V8" == "true" ] && apply_patch "$PATCHES/ohos/v8.patch" v8
+    ;;
 
   linux)
     [ "$ENABLE_V8" == "true" ] && apply_patch "$PATCHES/linux/v8.patch" v8

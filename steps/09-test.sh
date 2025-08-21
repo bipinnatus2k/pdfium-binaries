@@ -68,6 +68,24 @@ case "$OS" in
     )
     ;;
 
+  ohos)
+    case "$CPU" in
+      arm)
+        PREFIX="armv7a-unknown-linux-ohos-"
+        ;;
+      arm64)
+        PREFIX="aarch64-unknown-linux-ohos-"
+        ;;
+      x64)
+        PREFIX="x86_64-unknown-linux-ohos-"
+        ;;
+    esac
+    CMAKE_ARGS+=(
+      -D CMAKE_C_COMPILER="${PREFIX:-}clang"
+      -D CMAKE_CXX_COMPILER="${PREFIX:-}clang++"
+    )
+    ;;
+
   linux)
     case "$CPU" in
       arm)

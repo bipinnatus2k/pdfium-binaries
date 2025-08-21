@@ -264,6 +264,78 @@ jobs:
       target_environment: simulator
       enable_v8: true
 
+  ohos_arm:
+    name: Ohos ARM
+    uses: ./.github/workflows/build.yml
+    with:
+      branch: ${{ github.event.inputs.branch }}
+      version: ${{ github.event.inputs.version }}
+      is_debug: ${{ github.event.inputs.is_debug == 'true' }}
+      target_os: ohos
+      target_cpu: arm
+      enable_v8: false
+
+  ohos_arm_v8:
+    name: Ohos ARM V8
+    if: github.event.inputs.enable_v8 == 'true'
+    needs: ohos_arm
+    uses: ./.github/workflows/build.yml
+    with:
+      branch: ${{ github.event.inputs.branch }}
+      version: ${{ github.event.inputs.version }}
+      is_debug: ${{ github.event.inputs.is_debug == 'true' }}
+      target_os: ohos
+      target_cpu: arm
+      enable_v8: true
+
+  ohos_arm64:
+    name: Ohos ARM64
+    uses: ./.github/workflows/build.yml
+    with:
+      branch: ${{ github.event.inputs.branch }}
+      version: ${{ github.event.inputs.version }}
+      is_debug: ${{ github.event.inputs.is_debug == 'true' }}
+      target_os: ohos
+      target_cpu: arm64
+      enable_v8: false
+
+  ohos_arm64_v8:
+    name: Ohos ARM64 V8
+    if: github.event.inputs.enable_v8 == 'true'
+    needs: ohos_arm64
+    uses: ./.github/workflows/build.yml
+    with:
+      branch: ${{ github.event.inputs.branch }}
+      version: ${{ github.event.inputs.version }}
+      is_debug: ${{ github.event.inputs.is_debug == 'true' }}
+      target_os: ohos
+      target_cpu: arm64
+      enable_v8: true
+
+  ohos_x64:
+    name: Ohos x64
+    uses: ./.github/workflows/build.yml
+    with:
+      branch: ${{ github.event.inputs.branch }}
+      version: ${{ github.event.inputs.version }}
+      is_debug: ${{ github.event.inputs.is_debug == 'true' }}
+      target_os: ohos
+      target_cpu: x64
+      enable_v8: false
+
+  ohos_x64_v8:
+    name: Ohos x64 V8
+    if: github.event.inputs.enable_v8 == 'true'
+    needs: ohos_x64
+    uses: ./.github/workflows/build.yml
+    with:
+      branch: ${{ github.event.inputs.branch }}
+      version: ${{ github.event.inputs.version }}
+      is_debug: ${{ github.event.inputs.is_debug == 'true' }}
+      target_os: ohos
+      target_cpu: x64
+      enable_v8: true
+
   linux_arm:
     name: Linux ARM
     uses: ./.github/workflows/build.yml
@@ -710,6 +782,12 @@ jobs:
       - ios_device_arm64_v8
       - ios_simulator_x64
       - ios_simulator_x64_v8
+      - ohos_arm
+      - ohos_arm_v8
+      - ohos_arm64
+      - ohos_arm64_v8
+      - ohos_x64
+      - ohos_x64_v8
       - linux_arm
       - linux_arm_v8
       - linux_arm64

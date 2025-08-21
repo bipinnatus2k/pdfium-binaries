@@ -91,6 +91,6 @@ if [ "$ENABLE_V8" == "true" ]; then
   cp "$SOURCE_DIR/v8/LICENSE.strongtalk" "$OUTPUT_DIR/strongtalk.txt"
 fi
 
-if [ "$TARGET_ENVIRONMENT" == "musl" ]; then
+if [ "$TARGET_ENVIRONMENT" == "musl" ] || [ "$OS" = "ohos" ]; then
   curl -s -o "$OUTPUT_DIR/musl.txt" https://git.musl-libc.org/cgit/musl/plain/COPYRIGHT
 fi

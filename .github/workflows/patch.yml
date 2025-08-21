@@ -47,6 +47,7 @@ jobs:
           - linux
           - macos
           - win
+          - ohos
         v8:
           - false
           - true

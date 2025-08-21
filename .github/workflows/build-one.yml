@@ -21,6 +21,7 @@ on:
           - linux
           - mac
           - win
+          - ohos
       target_cpu:
         description: Target CPU
         type: choice

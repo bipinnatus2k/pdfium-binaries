@@ -13,6 +13,11 @@ case "$OS" in
     gclient runhooks
     build/linux/sysroot_scripts/install-sysroot.py "--arch=$CPU"
     ;;
+  
+  ohos)
+    # build/install-build-deps.sh
+    gclient runhooks
+    ;;
 
   android)
     build/install-build-deps.sh --android
@@ -27,8 +32,8 @@ case "$OS" in
       git clone https://github.com/emscripten-core/emsdk.git
     fi
     cd emsdk
-    ./emsdk install ${EMSDK_VERSION:-latest}
-    ./emsdk activate ${EMSDK_VERSION:-latest}
+    ./emsdk install "${EMSDK_VERSION:-latest}"
+    ./emsdk activate "${EMSDK_VERSION:-latest}"
     echo "$PWD/upstream/emscripten" >> "$PATH_FILE"
     echo "$PWD/upstream/bin" >> "$PATH_FILE"
     popd

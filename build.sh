@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-OS_NAMES="android|emscripten|ios|linux|mac|win"
+OS_NAMES="android|emscripten|ios|ohos|linux|mac|win"
 CPU_NAMES="arm|arm64|x64|x86|wasm"
 ENV_NAMES="catalyst|device|musl|simulator"
 OS_ENV_COMBINATIONS="linux musl|ios (catalyst|device|simulator)"
@@ -111,19 +111,19 @@ set -x
 ENV_FILE=${GITHUB_ENV:-.env}
 PATH_FILE=${GITHUB_PATH:-.path}
 
-[ $START_STEP -le 0 ] && . steps/00-environment.sh
+[ "$START_STEP" -le 0 ] && . steps/00-environment.sh
 source "$ENV_FILE"
 
-[ $START_STEP -le 1 ] && . steps/01-install.sh
+[ "$START_STEP" -le 1 ] && . steps/01-install.sh
 PATH="$(tr '\n' ':' < "$PATH_FILE")$PATH"
 export PATH
 
-[ $START_STEP -le 2 ] && . steps/02-checkout.sh
-[ $START_STEP -le 3 ] && . steps/03-patch.sh
-[ $START_STEP -le 4 ] && . steps/04-install-extras.sh
-[ $START_STEP -le 5 ] && . steps/05-configure.sh
-[ $START_STEP -le 6 ] && . steps/06-build.sh
-[ $START_STEP -le 7 ] && . steps/07-stage.sh
-[ $START_STEP -le 8 ] && . steps/08-licenses.sh
-[ $START_STEP -le 9 ] && . steps/09-test.sh
-[ $START_STEP -le 10 ] && . steps/10-pack.sh
+[ "$START_STEP" -le 2 ] && . steps/02-checkout.sh
+[ "$START_STEP" -le 3 ] && . steps/03-patch.sh
+[ "$START_STEP" -le 4 ] && . steps/04-install-extras.sh
+[ "$START_STEP" -le 5 ] && . steps/05-configure.sh
+[ "$START_STEP" -le 6 ] && . steps/06-build.sh
+[ "$START_STEP" -le 7 ] && . steps/07-stage.sh
+[ "$START_STEP" -le 8 ] && . steps/08-licenses.sh
+[ "$START_STEP" -le 9 ] && . steps/09-test.sh
+[ "$START_STEP" -le 10 ] && . steps/10-pack.sh
