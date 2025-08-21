@@ -21,7 +21,7 @@ jobs:
           PDFium_URL="https://gitcode.com/openharmony-tpc/chromium_third_party_pdfium.git"
           PDFium_BRANCH="132_trunk_6.0-Release"
           echo "Checking out branch $PDFium_BRANCH"
-          gclient config --unmanaged "${PDFium_URL}" || { echo "gclient config failed"; exit 1; }
+          gclient config --unmanaged "${PDFium_URL}" --name "pdfium" || { echo "gclient config failed"; exit 1; }
           gclient sync -r "origin/${PDFium_BRANCH}" --no-history --shallow || { echo "gclient sync failed"; exit 1; }
 
       - name: Upload PDFium artifact

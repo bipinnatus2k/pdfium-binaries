@@ -12,7 +12,7 @@ on:
         description: PDFium branch
         type: string
         required: false
-        default: 132_trunk_6.0-Release
+        default: "132_trunk_6.0-Release"
       version:
         description: PDFium version
         type: string
