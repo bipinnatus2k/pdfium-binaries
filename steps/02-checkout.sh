@@ -3,6 +3,7 @@
 GIT_URL="${PDFium_URL:-https://github.com/bipinnatus2k/pdfium.git}"
 OS=${PDFium_TARGET_OS:?}
 ENABLE_V8=${PDFium_ENABLE_V8:-false}
+PDFium_BRANCH=${PDFium_BRANCH:-132_trunk_6.0-Release}
 
 CONFIG_ARGS=()
 if [ "$ENABLE_V8" == "false" ]; then
@@ -24,4 +25,4 @@ for FOLDER in pdfium pdfium/build pdfium/v8 pdfium/third_party/libjpeg_turbo pdf
   fi
 done
 
-gclient sync -r "origin/${PDFium_BRANCH:-main}" --no-history --shallow
+gclient sync -r "origin/$PDFium_BRANCH" --no-history --shallow
