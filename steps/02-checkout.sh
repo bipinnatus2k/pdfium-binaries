@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-GIT_URL="${PDFium_URL:-https://gitcode.com/openharmony-tpc/chromium_third_party_pdfium.git}"
+GIT_URL="${PDFium_URL:-https://github.com/bipinnatus2k/pdfium.git}"
 OS=${PDFium_TARGET_OS:?}
 ENABLE_V8=${PDFium_ENABLE_V8:-false}
 
