@@ -1,6 +1,7 @@
 name: Build all
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       url: 
@@ -15,7 +16,7 @@ on:
       version:
         description: PDFium version
         required: false
-        default: ""
+        default: "132.0.6834.89"
       enable_v8:
         description: Enable V8
         type: boolean
