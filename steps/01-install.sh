@@ -7,6 +7,8 @@ TARGET_CPU=${PDFium_TARGET_CPU:?}
 CURRENT_CPU=${PDFium_CURRENT_CPU:-x64}
 MUSL_URL=${MUSL_URL:-https://musl.cc}
 ENABLE_V8=${PDFium_ENABLE_V8:-false}
+INPUT_CACHE=${INPUT_CACHE:-false}
+INPUT_WAS_CACHED=${INPUT_WAS_CACHED:-false}
 
 DepotTools_URL='https://chromium.googlesource.com/chromium/tools/depot_tools.git'
 DepotTools_DIR="$PWD/depot_tools"
