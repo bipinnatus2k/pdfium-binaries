@@ -9,6 +9,10 @@ MUSL_URL=${MUSL_URL:-https://musl.cc}
 ENABLE_V8=${PDFium_ENABLE_V8:-false}
 INPUT_CACHE=${INPUT_CACHE:-false}
 INPUT_WAS_CACHED=${INPUT_WAS_CACHED:-false}
+INPUT_VERSION="${INPUT_VERSION:-18}"
+INPUT_MIRROR=${INPUT_MIRROR:-false}
+INPUT_FIXUP_PATH=${INPUT_FIXUP_PATH:-true}
+INPUT_COMPONENTS=${INPUT_COMPONENTS:-all}
 
 DepotTools_URL='https://chromium.googlesource.com/chromium/tools/depot_tools.git'
 DepotTools_DIR="$PWD/depot_tools"
